@@ -27,8 +27,8 @@ public struct LineChart <PointValue: GraphablePoint>: View {
         self.config = config
         
         guard let firstPoint = data.first else {
-            self.minPoint = PointValue.zero
-            self.maxPoint = PointValue.zero
+            self.minPoint = PointValue(x: 0, y: 0)
+            self.maxPoint = PointValue(x: 0, y: 0)
             self.paddingX = 0
             self.paddingY = 0
             self.tickX = 0

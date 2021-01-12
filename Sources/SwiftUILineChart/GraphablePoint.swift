@@ -20,9 +20,6 @@ public protocol GraphablePoint : Comparable {
     
     /// A basic constructor for the point
     init(x: XValue, y: YValue)
-    
-    /// A point representing the origin
-    static var zero: Self {get}
 }
 
 // Comparable conformance
