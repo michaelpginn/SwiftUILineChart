@@ -13,8 +13,8 @@ public struct LineChart <PointValue: GraphablePoint>: View {
     let data: [PointValue]
     let config: LineChartConfiguration
     
-    private let minPoint: PointValue
-    private let maxPoint: PointValue
+    private let minPoint: (x: PointValue.XValue, y: PointValue.YValue)
+    private let maxPoint: (x: PointValue.XValue, y: PointValue.YValue)
     
     private let tickX: PointValue.XValue
     private let tickY: PointValue.YValue
@@ -27,8 +27,8 @@ public struct LineChart <PointValue: GraphablePoint>: View {
         self.config = config
         
         guard let firstPoint = data.first else {
-            self.minPoint = PointValue(x: 0, y: 0)
-            self.maxPoint = PointValue(x: 0, y: 0)
+            self.minPoint = (x: 0, y: 0)
+            self.maxPoint = (x: 0, y: 0)
             self.paddingX = 0
             self.paddingY = 0
             self.tickX = 0
@@ -50,8 +50,8 @@ public struct LineChart <PointValue: GraphablePoint>: View {
             maxY = max(maxY, point.y)
         }
         
-        self.minPoint = PointValue(x: minX, y: minY)
-        self.maxPoint = PointValue(x: maxX, y: maxY)
+        self.minPoint = (x: minX, y: minY)
+        self.maxPoint = (x: maxX, y: maxY)
         
         // Determine the amount of padding in each direction
         let rangeX = maxX - minX

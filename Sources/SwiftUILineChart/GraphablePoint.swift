@@ -18,9 +18,6 @@ public protocol GraphablePoint : Comparable {
     /// The y value of a point
     var y: YValue {get}
     
-    /// A basic constructor for the point
-    init(x: XValue, y: YValue)
-    
     /// Used to format the x value
     static var xAxisFormatter: (XValue) -> String {get}
     
