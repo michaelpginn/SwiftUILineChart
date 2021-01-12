@@ -83,7 +83,7 @@ public struct LineChart <PointValue: GraphablePoint>: View {
                     path.addLine(to: CGPoint(x: geometry.size.width, y: geometry.size.height))
                     path.addLine(to: CGPoint(x: geometry.size.width, y: 0))
                 }
-                .stroke(Color.black)
+                .stroke(config.axisColor)
                 
                 // Points
                 Path { path in

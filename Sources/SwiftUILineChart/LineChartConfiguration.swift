@@ -12,6 +12,7 @@ import SwiftUI
 public struct LineChartConfiguration  {
     /// The color of the points. Default is blue.
     public var pointColor: Color = .blue
+    public var axisColor: Color = .primary
     
     public var xNumTicks: Int = 5
     public var yNumTicks: Int = 5
