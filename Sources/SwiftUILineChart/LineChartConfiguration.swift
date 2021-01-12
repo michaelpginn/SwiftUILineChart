@@ -15,4 +15,6 @@ public struct LineChartConfiguration  {
     
     public var xNumTicks: Int = 5
     public var yNumTicks: Int = 5
+    
+    public init(){}
 }
