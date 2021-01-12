@@ -9,21 +9,7 @@ import Foundation
 import SwiftUI
 
 @available(iOS 13.0, macOS 10.15, *)
-public struct LineChartConfiguration <PointValue: GraphablePoint> {
-    // Required properties
-    
-    let xAxisFormatter: (PointValue.XValue) -> String
-    let yAxisFormatter: (PointValue.YValue) -> String
-    
-    init(
-        xFormatter: @escaping (PointValue.XValue) -> String,
-        yFormatter: @escaping (PointValue.YValue) -> String) {
-        self.xAxisFormatter = xFormatter
-        self.yAxisFormatter = yFormatter
-    }
-    
-    // Other configurable properties
-    
+public struct LineChartConfiguration  {
     /// The color of the points. Default is blue.
     public var pointColor: Color = .blue
     

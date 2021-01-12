@@ -11,7 +11,7 @@ import SwiftUI
 public struct LineChart <PointValue: GraphablePoint>: View {
     
     let data: [PointValue]
-    let config: LineChartConfiguration<PointValue>
+    let config: LineChartConfiguration
     
     private let minPoint: PointValue
     private let maxPoint: PointValue
@@ -22,7 +22,7 @@ public struct LineChart <PointValue: GraphablePoint>: View {
     private let paddingX: PointValue.XValue
     private let paddingY: PointValue.YValue
     
-    public init(data: [PointValue], config: LineChartConfiguration<PointValue>) {
+    public init(data: [PointValue], config: LineChartConfiguration) {
         self.data = data.sorted() // Sort by the x axis, this will matter when drawing segments
         self.config = config
         
@@ -98,7 +98,7 @@ public struct LineChart <PointValue: GraphablePoint>: View {
             // Y axis labels
             GeometryReader { geometry in
                 ForEach(0..<config.yNumTicks){ tickNum in
-                    Text(config.yAxisFormatter(maxPoint.y - (PointValue.YValue(Double(tickNum)) * tickY)))
+                    Text(PointValue.yAxisFormatter(maxPoint.y - (PointValue.YValue(Double(tickNum)) * tickY)))
                         .font(.caption)
                         .offset(
                             x: 0,
@@ -127,7 +127,7 @@ public struct LineChart <PointValue: GraphablePoint>: View {
 @available(iOS 13.0, macOS 10.15, *)
 struct LineChart_Previews: PreviewProvider {
     static var previews: some View {
-        var config = LineChartConfiguration<DoubleDoublePoint>(xFormatter: {String(format: "%.1f", $0)}, yFormatter: {String(format: "%.1f", $0)})
+        var config = LineChartConfiguration()
         config.yNumTicks = 6
         
         return LineChart(data: [
